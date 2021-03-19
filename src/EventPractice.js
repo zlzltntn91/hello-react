@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-
+import React, { useState } from 'react';
 // class EventPractice extends Component {
 //
 //     constructor(props) {
@@ -48,34 +47,33 @@ import React, {useState} from 'react';
 // }
 
 const EventPractice = () => {
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+  });
 
-    const [form, setForm] = useState({
-        firstName: '',
-        lastName: ''
-    })
+  const { firstName, lastName } = form;
 
-    const {firstName, lastName} = form;
+  const changeHandler = (e) => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
+  };
 
-    const changeHandler = (e) => {
-        const nextForm = {
-            ...form,
-            [e.target.name]: e.target.value
-        }
-        setForm(nextForm);
-    }
+  const clickHandler = () => {
+    alert(`${form.firstName}//${form.lastName}`);
+    setForm({ firstName: '', lastName: '' });
+  };
 
-    const clickHandler = () => {
-        alert(form.firstName +"//"+ form.lastName);
-        setForm({firstName: '', lastName: ''});
-    }
+  return (
+    <div>
+      <input type="text" onChange={changeHandler} value={firstName} name="firstName" />
+      <input type="text" onChange={changeHandler} value={lastName} name="lastName" />
+      <button type="button" onClick={clickHandler}>확인</button>
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <input type="text" onChange={changeHandler} value={firstName} name={'firstName'}/>
-            <input type="text" onChange={changeHandler} value={lastName} name={'lastName'}/>
-            <button onClick={clickHandler}>확인</button>
-        </div>
-    );
-}
-
-export default EventPractice
+export default EventPractice;
