@@ -1,15 +1,18 @@
-class Animal{
-    constructor(name, sound) {
-        this.name = name;
-        this.sound = sound;
-    }
+function arrowTest() {
 
-    makeSound(){
-        console.log(this.sound);
+    this.name = "arrow";
+    this.kindOf = "constructor";
+
+    return {
+        name: 'inner',
+        test: () => console.log(this.name),
+        test2: function () {
+            console.log(this.name);
+        }
     }
 }
 
-let dog = new Animal("멍멍이", "멍멍");
-console.log(Animal);
-console.log(dog);
-console.log(dog.makeSound());
+let arrow = new arrowTest();
+
+console.info(arrow.test());
+console.dir(arrow.test2());

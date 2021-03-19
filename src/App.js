@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
-import './App.css';
+import React from 'react';
+import UsePropsAndChildrenFunction from "./mysrc/UsePropsAndChildrenFunction";
+import PropsAndChildren from "./mysrc/UsePropsAndChildrenClass";
+import StateFunction from "./mysrc/StateFunction";
+import StateClass from "./mysrc/StateClass";
+import EventPractice from "./EventPractice";
 
-class App extends Component{
-    render() {
-        const name = "react";
-        return <div className={name}>{name}</div>
-    }
+const App = () => {
+    return (
+        <EventPractice/>
+    )
 }
-// function App (){
-//     const name = 'react';
-//
-//     return(
-//         <div className={name}>{name}</div>
-//     );
-// }
+
 export default App;
