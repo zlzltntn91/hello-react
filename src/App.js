@@ -1,13 +1,28 @@
-import React from "react";
-import UsePropsAndChildrenFunction from "./mysrc/UsePropsAndChildrenFunction";
-import PropsAndChildren from "./mysrc/UsePropsAndChildrenClass";
-import StateFunction from "./mysrc/StateFunction";
-import StateClass from "./mysrc/StateClass";
-import EventPractice from "./EventPractice";
-import ValidationSample from "./ValidationSample";
+import React, { useState } from "react";
+
+import LifeCycleSample from "./7LifeCycle/LifeCycleSample";
 
 const App = () => {
-  return <ValidationSample></ValidationSample>;
+  const [state, setState] = useState({
+    color: "#000000",
+  });
+
+  const getRandomColor = () => {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  };
+
+  const handeClick = () => {
+    setState({
+      color: getRandomColor(),
+    });
+  };
+
+  return (
+    <div>
+      <button onClick={handeClick}>랜덤색상</button>
+      <LifeCycleSample color={state.color} />
+    </div>
+  );
 };
 
 export default App;

@@ -13,8 +13,8 @@ class ValidationSample extends Component {
 
   handleClick = () => {
     this.setState({
-      clicked: !this.clicked,
-      validated: this.password === "1219",
+      clicked: true,
+      validated: this.password === 1219,
     });
   };
 
@@ -26,8 +26,8 @@ class ValidationSample extends Component {
           value={this.state.password}
           onChange={this.handleChange}
           className={
-            this.clicked === true
-              ? this.validated === true
+            this.state.clicked === true
+              ? this.state.validated === true
                 ? "success"
                 : "failure"
               : ""
